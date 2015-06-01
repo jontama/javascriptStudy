@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    function Test(a,b){
+        var val1 = a;
+        var val2 = b;
+
+        this.getVal1 = function(){
+            return val1;
+        }
+        this.getVal2 = function(){
+            return val2;
+        }
+
+    }
+
+    Test.prototype.getSum = function(){
+        return this.getVal1() + this.getVal2();
+
+    }
+
+    function Test2(a){
+        this.base = Test;
+        this.base(a,a);
+    }
+
+    Test2.prototype = Test.prototype;
+    //Test2.prototype.constructor = Test2;
+
+    var resultT2 = new Test2(3);
+    alert(resultT2 instanceof Test);
+    alert(Test2.prototype.constructor+"");
+    alert(resultT2.getSum());
+
+
+
+
+
+</script>
